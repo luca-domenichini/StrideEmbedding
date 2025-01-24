@@ -1,4 +1,6 @@
-﻿using Stride.Core.Diagnostics;
+﻿using Stride.CommunityToolkit.Bepu;
+using Stride.CommunityToolkit.Engine;
+using Stride.Core.Diagnostics;
 using Stride.Core.Presentation.Controls;
 using Stride.Core.Presentation.Interop;
 using Stride.Engine;
@@ -59,11 +61,15 @@ public partial class StrideView : UserControl
 
         gameStartedTaskSource.SetResult(true);
         var game = new Game();
-        //game.Window.IsBorderLess = true;
-        game.Activated += (sender, args) => game.Window.IsBorderLess = true;
-        game.WindowCreated += (sender, args) => game.Window.IsBorderLess = true;
-        game.Run(context);
-        //game.SetupBase3DScene();
+        game.Run(context
+            , scene =>
+            {
+                game.Window.IsBorderLess = true;
+                game.SetupBase3DScene();
+            }
+            , (scene, game) =>
+            {
+            });
     }
 }
 

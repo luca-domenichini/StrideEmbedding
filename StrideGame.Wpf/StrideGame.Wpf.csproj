@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Stride.CommunityToolkit" Version="1.0.0-preview.52" />
+    <PackageReference Include="Stride.CommunityToolkit.Bepu" Version="1.0.0-preview.52" />
     <PackageReference Include="Stride.Core.Presentation.Wpf" Version="4.2.0.2293" />
   </ItemGroup>
 
