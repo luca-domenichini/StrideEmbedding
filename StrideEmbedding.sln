@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31613.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoStrideGameWinform", "DemoStrideGameWinform\DemoStrideGameWinform.csproj", "{93F54FDC-2072-4319-99BA-1F1F18B299CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGame.WinForms", "StrideGame.WinForms\StrideGame.WinForms.csproj", "{93F54FDC-2072-4319-99BA-1F1F18B299CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoStrideGame", "DemoStrideGame\DemoStrideGame.csproj", "{3C0DB583-486B-4BBE-8E71-D85E49399077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrideGame", "StrideGame\StrideGame.csproj", "{3C0DB583-486B-4BBE-8E71-D85E49399077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGame.Wpf", "StrideGame.Wpf\StrideGame.Wpf.csproj", "{2CFA4936-A236-436C-B9D3-A051C95A5DC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3C0DB583-486B-4BBE-8E71-D85E49399077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C0DB583-486B-4BBE-8E71-D85E49399077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C0DB583-486B-4BBE-8E71-D85E49399077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFA4936-A236-436C-B9D3-A051C95A5DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFA4936-A236-436C-B9D3-A051C95A5DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFA4936-A236-436C-B9D3-A051C95A5DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFA4936-A236-436C-B9D3-A051C95A5DC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

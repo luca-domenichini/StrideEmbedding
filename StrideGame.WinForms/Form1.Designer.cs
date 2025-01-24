@@ -1,5 +1,5 @@
 ﻿
-namespace DemoNet5StrideGameWinform
+namespace StrideGame.WinForms
 {
     partial class Form1
     {
