@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StrideGame.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <local:StrideView></local:StrideView>
+        <Button Content="Click Me" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Click="Button_Click" Margin="54,39,0,0" />
+        <local:StrideView />
     </Grid>
 </Window>

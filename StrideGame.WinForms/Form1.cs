@@ -28,5 +28,10 @@ namespace StrideGame.WinForms
         {
             _game.Run(_gameContext);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello, World!");
+        }
     }
 }
