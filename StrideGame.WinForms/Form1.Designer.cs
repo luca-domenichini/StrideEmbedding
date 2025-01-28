@@ -40,7 +40,7 @@ namespace StrideGame.WinForms
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(231, 15);
             label1.TabIndex = 1;
-            label1.Text = "Stride Game Engine .NET 5 Winform Demo";
+            label1.Text = "Stride Game Engine .NET 8 Winform Demo";
             // 
             // Form1
             // 
