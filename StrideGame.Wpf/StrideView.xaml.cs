@@ -2,6 +2,7 @@
 using Stride.Core.Diagnostics;
 using Stride.Core.Presentation.Controls;
 using Stride.Core.Presentation.Interop;
+using Stride.Engine;
 using Stride.Games;
 using System.ComponentModel;
 using System.Windows;
@@ -65,26 +66,28 @@ public partial class StrideView : UserControl
     private Thread? _gameThread;
     private readonly TaskCompletionSource<bool> _gameStartedTaskSource = new();
     private EmbeddedGameForm? _form;
-    private nint _windowHandle;
+    private nint _winformHandle;
+
+    public string? GameClass { get; set; }
 
     public StrideView()
     {
         InitializeComponent();
 
-        if (!DesignerProperties.GetIsInDesignMode(this))
+        Loaded += (sender, args) =>
         {
-            _gameThread = new Thread(SafeAction.Wrap(GameRunThread))
+            if (!DesignerProperties.GetIsInDesignMode(this) && GameClass is not null)
             {
-                IsBackground = true,
-                Name = "Game Thread"
-            };
-            _gameThread.SetApartmentState(ApartmentState.STA);
+                _gameThread = new Thread(SafeAction.Wrap(GameRunThread))
+                {
+                    IsBackground = true,
+                    Name = "Game Thread"
+                };
+                _gameThread.SetApartmentState(ApartmentState.STA);
 
-            Loaded += (sender, args) =>
-            {
                 StartGame();
-            };
-        }
+            }
+        };
     }
 
     private void StartGame()
@@ -93,7 +96,7 @@ public partial class StrideView : UserControl
 
         _gameStartedTaskSource.Task.Wait();
 
-        _form!.Host = new GameEngineHost(_windowHandle);
+        _form!.Host = new GameEngineHost(_winformHandle);
         SceneView.Content = _form.Host;
     }
 
@@ -106,12 +109,12 @@ public partial class StrideView : UserControl
             TopLevel = false,
             Visible = false
         };
-        _windowHandle = _form.Handle;
+        _winformHandle = _form.Handle;
 
         _gameStartedTaskSource.SetResult(true);
 
         var context = new GameContextWinforms(_form);
-        var game = new TeapotDemo();
+        var game = (Game)Activator.CreateInstance(Type.GetType(GameClass!)!)!;
         game.Run(context
             , scene =>
             {

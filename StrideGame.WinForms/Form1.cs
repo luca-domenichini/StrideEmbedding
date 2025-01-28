@@ -7,7 +7,7 @@ namespace StrideGame.WinForms
 {
     public partial class Form1 : Form
     {
-        private Game _game;
+        private TeapotDemo _game;
         private GameContext _gameContext;
 
         public Form1()
@@ -31,7 +31,7 @@ namespace StrideGame.WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello, World!");
+            _game.Paused = !_game.Paused;
         }
     }
 }

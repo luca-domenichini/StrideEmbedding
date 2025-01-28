@@ -45,12 +45,15 @@ namespace StrideGame.WinForms
             // 
             // button1
             // 
+            button1.BackColor = System.Drawing.SystemColors.Control;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             button1.Location = new System.Drawing.Point(88, 69);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 23);
             button1.TabIndex = 2;
             button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // Form1
