@@ -41,13 +41,11 @@ public class TeapotDemo : Game
         base.Draw(gameTime);
 
         var delta = gameTime.Elapsed.TotalSeconds;
-        if (Paused)
-            return;
-
-        _time += (float)delta;
+        if (!Paused)
+            _time += (float)delta;
 
         // Clear screen
-        GraphicsContext.CommandList.Clear(GraphicsDevice.Presenter.BackBuffer, Color.Magenta);
+        GraphicsContext.CommandList.Clear(GraphicsDevice.Presenter.BackBuffer, Color.Black);
         GraphicsContext.CommandList.Clear(GraphicsDevice.Presenter.DepthStencilBuffer, DepthStencilClearOptions.DepthBuffer | DepthStencilClearOptions.Stencil);
 
         // Set render target

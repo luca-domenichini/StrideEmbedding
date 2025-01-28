@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGame.Wpf", "StrideGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGame.Avalonia", "StrideGame.Avalonia\StrideGame.Avalonia.csproj", "{8F94D941-1BEB-4EE4-8843-46FF577F9BB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideGame.WpfAndWinForms", "StrideGame.WpfAndWinForms\StrideGame.WpfAndWinForms.csproj", "{0ADB0430-4F7A-4639-9AA2-40DE49825D0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8F94D941-1BEB-4EE4-8843-46FF577F9BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F94D941-1BEB-4EE4-8843-46FF577F9BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F94D941-1BEB-4EE4-8843-46FF577F9BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADB0430-4F7A-4639-9AA2-40DE49825D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADB0430-4F7A-4639-9AA2-40DE49825D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADB0430-4F7A-4639-9AA2-40DE49825D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADB0430-4F7A-4639-9AA2-40DE49825D0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

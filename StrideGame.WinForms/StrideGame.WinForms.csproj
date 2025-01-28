@@ -8,6 +8,7 @@
         <Platforms>AnyCPU;x64</Platforms>
         <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
         <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

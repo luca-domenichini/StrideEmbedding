@@ -16,8 +16,6 @@ namespace StrideGame.Wpf;
 /// </summary>
 public partial class StrideView : UserControl
 {
-    // Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ & https://stride3d.net) and Silicon Studio Corp. (https://www.siliconstudio.co.jp)
-    // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
     /// <summary>
     /// A specialization of <see cref="GameForm"/> that is able to forward keyboard and mousewheel events to an associated <see cref="GameEngineHost"/>.
     /// </summary>
@@ -63,8 +61,8 @@ public partial class StrideView : UserControl
         }
     }
 
-    private Thread? _gameThread;
-    private readonly TaskCompletionSource<bool> _gameStartedTaskSource = new();
+    private Thread? _strideThread;
+    private readonly TaskCompletionSource<bool> _strideStartedTaskSource = new();
     private EmbeddedGameForm? _form;
     private nint _winformHandle;
 
@@ -78,32 +76,25 @@ public partial class StrideView : UserControl
         {
             if (!DesignerProperties.GetIsInDesignMode(this) && GameClass is not null)
             {
-                _gameThread = new Thread(SafeAction.Wrap(GameRunThread))
+                _strideThread = new Thread(SafeAction.Wrap(StrideThreadRun))
                 {
                     IsBackground = true,
-                    Name = "Game Thread"
+                    Name = "Stride-Thread"
                 };
-                _gameThread.SetApartmentState(ApartmentState.STA);
+                _strideThread.SetApartmentState(ApartmentState.STA);
+                _strideThread.Start();
 
-                StartGame();
+                _strideStartedTaskSource.Task.Wait();
+
+                _form!.Host = new GameEngineHost(_winformHandle);
+                SceneView.Content = _form.Host;
             }
         };
     }
 
-    private void StartGame()
+    private void StrideThreadRun()
     {
-        _gameThread!.Start();
-
-        _gameStartedTaskSource.Task.Wait();
-
-        _form!.Host = new GameEngineHost(_winformHandle);
-        SceneView.Content = _form.Host;
-    }
-
-    private void GameRunThread()
-    {
-        // Create the form from this thread
-        // EmbeddedGameForm is in Stride.Editor. You may need to copy this class to your own project.
+        // This runs on Stride thread
         _form = new EmbeddedGameForm()
         {
             TopLevel = false,
@@ -111,12 +102,12 @@ public partial class StrideView : UserControl
         };
         _winformHandle = _form.Handle;
 
-        _gameStartedTaskSource.SetResult(true);
+        _strideStartedTaskSource.SetResult(true);
 
         var context = new GameContextWinforms(_form);
         var game = (Game)Activator.CreateInstance(Type.GetType(GameClass!)!)!;
         game.Run(context
-            , scene =>
+            , start: scene =>
             {
                 game.Window.IsBorderLess = true;
 
@@ -131,7 +122,7 @@ public partial class StrideView : UserControl
                     }
                 });
             }
-            , (scene, gameTime) =>
+            , update: (scene, gameTime) =>
             {
             }
         );

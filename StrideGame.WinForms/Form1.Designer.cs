@@ -30,7 +30,6 @@ namespace StrideGame.WinForms
         private void InitializeComponent()
         {
             label1 = new System.Windows.Forms.Label();
-            button1 = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // label1
@@ -43,37 +42,21 @@ namespace StrideGame.WinForms
             label1.TabIndex = 1;
             label1.Text = "Stride Game Engine .NET 5 Winform Demo";
             // 
-            // button1
-            // 
-            button1.BackColor = System.Drawing.SystemColors.Control;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            button1.Location = new System.Drawing.Point(88, 69);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(487, 341);
-            Controls.Add(button1);
             Controls.Add(label1);
             Margin = new System.Windows.Forms.Padding(1);
             Name = "Form1";
             Text = "Stride Engine Demo";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
     }
 }
 
